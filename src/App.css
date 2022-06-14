@@ -28,6 +28,20 @@
   color: #61dafb;
 }
 
+.img-container {
+  background: #fff;
+  padding-bottom: 2rem;
+  border-radius: 5px;
+  box-shadow: -1px 2px 34px -13px rgb(0 0 0 / 75%);
+  text-align: center;
+  overflow: hidden;
+}
+
+.img-container img {
+  width: auto;
+  box-sizing: border-box;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
