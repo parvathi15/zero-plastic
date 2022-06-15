@@ -39,7 +39,7 @@ class ListDetails extends Component {
     //   list: data
     // });
     axios
-      .get(`http://localhost:5000/desc/${this.state.searchterm}`)
+      .get(`https://zerowaste-api.herokuapp.com/desc/${this.state.searchterm}`)
       .then(response => {
         // this.state.list.push(response.data);
         this.setState({ list: response.data });
@@ -78,7 +78,7 @@ class ListDetails extends Component {
                   <div className="img-container">
                     <h4 className="mt-2 mb-5">{cocktail.title}</h4>
                     <img
-                      src={`http://localhost:8000/${cocktail.filePath}`}
+                      src={`https://zerowaste-api.herokuapp.com/${cocktail.filePath}`}
                       height="200"
                       className="card-img-top img-responsive"
                       alt="img"
