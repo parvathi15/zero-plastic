@@ -1,28 +1,17 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import logo from "../img/logo.png";
 
 export default class Navbar extends Component {
   render() {
     return (
-      <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
-        <Link to="/" className="navbar-brand">
-          <b>ZEROWASTE</b>
+      <div>
+        <nav className="navbar navbar-expand-lg fixed-top py-3">
+        <Link to="/" class="navbar-brand" style = {{color:"#a0d546",fontSize:"20px"}}>
+          Zero Waste
         </Link>
-        <div className="collpase navbar-collapse">
-          <ul className="navbar-nav mr-auto">
-            <li className="navbar-item">
-              <Link to="/" className="nav-link">
-                Table List
-              </Link>
-            </li>
-            <li className="navbar-item">
-              <Link to="/create" className="nav-link">
-                Create List
-              </Link>
-            </li>
-          </ul>
-        </div>
-      </nav>
+        </nav>
+      </div>
     );
   }
 }
