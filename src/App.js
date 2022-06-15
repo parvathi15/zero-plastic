@@ -3,6 +3,7 @@ import Home from "./Components/Home";
 import ListDetails from "./Components/ListDetails";
 import DetailPage from "./Components/DetailPage";
 import CreateList from "./Components/CreateList";
+import Default from "./Components/Default";
 import Navbar from "./Components/Navbar";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
