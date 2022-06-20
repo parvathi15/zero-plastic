@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class DetailPage extends Component {
   constructor(props) {
     super(props);
-   
+   console.log(props);
     this.state = {
       alternative: []
     };
@@ -11,7 +11,7 @@ class DetailPage extends Component {
   
   componentDidMount = async () => {
     const id = this.props.location.state.id;
-    const req = await fetch(`https://whispering-chamber-66906.herokuapp.com/api/${id}`);
+    const req = await fetch(`https://zerowaste-api.herokuapp.com/api/${id}`);
     const res = await req.json();
     
     this.setState({ alternative: res });
@@ -28,7 +28,7 @@ class DetailPage extends Component {
           </h2>
           <img
             className="active-cocktail__img mt-3"
-            src={`https://whispering-chamber-66906.herokuapp.com/${des.filePath}`}
+            src={`https://zerowaste-api.herokuapp.com/${des.filePath}`}
           />
            <p className="mt-3 mb-3 pl-5 text-black">
             <span className="title-data">Alternative for</span>

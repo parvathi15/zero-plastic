@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import zerowaste from "../img/label.png";
 import axios from "axios";
 import { Link } from "react-router-dom";
-class ShowList extends Component {
+
+class ListDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -34,9 +35,10 @@ class ShowList extends Component {
       }
     
     axios
-      .get(`https://whispering-chamber-66906.herokuapp.com/title/${term}`)
+      .get(`https://zerowaste-api.herokuapp.com/desc/${term}`)
       .then(response => {
         this.setState({ list: response.data });
+        console.log(response.data.length)
         this.setState({ display: "flex" });
         if(this.state.list.length === 0 && this.state.searchterm !== "") {
           this.setState({ statusmsg: "No Results" });
@@ -118,12 +120,12 @@ class ShowList extends Component {
                     <div class="py-5">
                    
                       <div class="container">
-                        <p style = {{fontSize: "x-large",color: "#6aa140"}}>{this.state.statusmsg}</p>
-                      {/* {this.state.list.length === 0 && this.state.searchterm !== "" ?(
-                      <p>No Results</p>
+                        {/* <p style = {{fontSize: "x-large",color: "#6aa140"}}>{this.state.statusmsg}</p> */}
+                      {this.state.list.length === 0 && this.state.searchterm !== "" ?(
+                      <p style = {{fontSize: "x-large",color: "#6aa140"}}>{this.state.statusmsg}</p>
                       ):(
                       null
-                      )} */}
+                      )}
                      <div class="row hidden-md-up" style={{ display: this.state.display }}>
                        
                         {this.state.list.
@@ -134,17 +136,17 @@ class ShowList extends Component {
                               <div class="card-block">
                                
                                 <img
-                      src={`https://whispering-chamber-66906.herokuapp.com/${cocktail.filePath}`}
+                      src={`https://zerowaste-api.herokuapp.com/${cocktail.filePath}`}
                       height="380" width = "auto"
                       className="card-img-top img-responsive"
                       alt="img"
                     />
-                     <h4 class="card-title mt-2">{cocktail.alternative}</h4>
+                     <h4 className="card-title d-block mt-2 text-center">{cocktail.alternative}</h4>
                                 {/* <p class="card-text">
                                 {cocktail.description}
                                 </p> */}
 
-                     <Link className="btn detail mb-3"
+                     <Link className="btn detail mb-3 text-center"
                       to={{
                         pathname: `/detailpage/${cocktail._id}`,
                         state: { id: cocktail._id }
@@ -179,5 +181,5 @@ class ShowList extends Component {
     );
   }
 }
+export default ListDetails;
 
-export default ShowList;
